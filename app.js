@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require("express");
 const app = express();
 
@@ -14,7 +15,7 @@ app.use(shopRoutes);
 
 //404 Eror page not found route
 app.use((req, res, next) => {
-  res.status(404).send("<h1 style='color:red'>PAGE NOT FOUND</h1>")
+  res.status(404).sendFile(path.join(__dirname,'views','404.html'))
 })
 
 app.listen(3000);
